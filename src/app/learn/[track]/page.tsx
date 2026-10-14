@@ -45,7 +45,7 @@ export default async function TrackPage({ params }: { params: Promise<{ track: s
         <div className="card" style={{ marginBottom: 64 }}>
           <div className="eyebrow">Coming soon</div>
           <p className="muted" style={{ marginTop: 8 }}>
-            This track is being written right now and will appear here stage by stage. Meanwhile, the DSA track is complete — start there.
+            This track is being written right now and will appear here stage by stage. Meanwhile, the DSA and System Design tracks are ready — start there.
           </p>
           <ol style={{ marginTop: 16, paddingLeft: "1.2em", color: "var(--text-2)", display: "grid", gap: 6 }}>
             {t.stages.map((st) => (

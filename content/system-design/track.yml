@@ -5,7 +5,6 @@ tagline: How real systems stay fast, available and correct — explained from fi
 description: Networking, storage, caching, queues and the trade-offs behind them, then complete case studies in the shape of a real interview.
 target: Intermediate — confident in a 45-minute system design interview
 order: 2
-status: soon
 codeLangs: []
 reality:
   - Articles alone will not make you good at system design. Build small systems, break them, and read real postmortems.

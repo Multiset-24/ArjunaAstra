@@ -4,8 +4,8 @@ A calm, interactive place to learn problem solving and software engineering from
 
 | Track | Goal | Status |
 |---|---|---|
-| DSA & Competitive Programming (C++ / Java) | Codeforces Candidate Master (1900+) | Live, stages being added |
-| System Design | Intermediate, interview-ready | Coming soon |
+| DSA & Competitive Programming (C++ / Java) | Codeforces Candidate Master (1900+) | Live (57 lessons) |
+| System Design | Intermediate, interview-ready | Live |
 | Low-Level Design (Java / C++) | Intermediate, machine-coding ready | Coming soon |
 | AI Engineering (Python) | Build, evaluate and ship LLM features | Coming soon |
 
