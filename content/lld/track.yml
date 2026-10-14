@@ -5,7 +5,6 @@ tagline: Object-oriented design in Java and C++ — principles, patterns and rea
 description: Classes that are easy to change, patterns as a shared vocabulary, and full case studies like parking lots, elevators and booking systems.
 target: Intermediate — clean answers in LLD and machine-coding rounds
 order: 3
-status: soon
 codeLangs: [java, cpp]
 reality:
   - Patterns are vocabulary, not goals. Forcing a pattern where it is not needed is the most common LLD mistake.

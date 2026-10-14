@@ -4,10 +4,10 @@ A calm, interactive place to learn problem solving and software engineering from
 
 | Track | Goal | Status |
 |---|---|---|
-| DSA & Competitive Programming (C++ / Java) | Codeforces Candidate Master (1900+) | Live (57 lessons) |
-| System Design | Intermediate, interview-ready | Live |
-| Low-Level Design (Java / C++) | Intermediate, machine-coding ready | Coming soon |
-| AI Engineering (Python) | Build, evaluate and ship LLM features | Coming soon |
+| DSA & Competitive Programming (C++ / Java) | Codeforces Candidate Master (1900+) | 57 lessons |
+| System Design | Intermediate, interview-ready — incl. 16 HLD case studies and tool deep-dives | 46 lessons |
+| Low-Level Design (Java / C++) | Intermediate, machine-coding ready — incl. 16 LLD case studies | 41 lessons |
+| AI Engineering (Python) | Build, evaluate and ship LLM features | 32 lessons |
 
 Every lesson is short and interactive: quick checks, predict-the-output, put-the-lines-in-order, fill-in-the-blanks, back-of-the-envelope estimates, step-through algorithm visualizers, flashcards with spaced review, copy-ready notes and real practice problems from Codeforces, LeetCode and CSES.
 

@@ -5,7 +5,6 @@ tagline: The math, models and engineering every AI engineer needs — from gradi
 description: Enough math to understand what is happening, the classic ML toolkit, deep learning and transformers, then building real LLM applications with retrieval, tools, evals and deployment.
 target: Intermediate — build, evaluate and ship LLM-powered features
 order: 4
-status: soon
 codeLangs: [python]
 reality:
   - Tools change every few months; the fundamentals (linear algebra, probability, optimisation, evaluation) do not. Invest there first.

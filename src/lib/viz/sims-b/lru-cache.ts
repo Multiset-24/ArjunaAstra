@@ -19,7 +19,7 @@ const CODE = [
 export const lruCache: Simulator<In> = ({ capacity, ops }) => {
   const frames: Frame[] = [];
   /** Front of the array = most recently used. */
-  let list: { k: string; v: string }[] = [];
+  const list: { k: string; v: string }[] = [];
   let hit = 0;
   let miss = 0;
   let evicted = "-";
