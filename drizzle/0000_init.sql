@@ -1,4 +1,4 @@
-CREATE TABLE `account` (
+CREATE TABLE IF NOT EXISTS `account` (
 	`id` text PRIMARY KEY NOT NULL,
 	`account_id` text NOT NULL,
 	`provider_id` text NOT NULL,
@@ -15,8 +15,8 @@ CREATE TABLE `account` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE INDEX `account_user_idx` ON `account` (`user_id`);--> statement-breakpoint
-CREATE TABLE `activity` (
+CREATE INDEX IF NOT EXISTS `account_user_idx` ON `account` (`user_id`);--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS `activity` (
 	`user_id` text NOT NULL,
 	`key` text NOT NULL,
 	`at` integer NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `activity` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `lesson_progress` (
+CREATE TABLE IF NOT EXISTS `lesson_progress` (
 	`user_id` text NOT NULL,
 	`key` text NOT NULL,
 	`at` integer NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `lesson_progress` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `note` (
+CREATE TABLE IF NOT EXISTS `note` (
 	`user_id` text NOT NULL,
 	`key` text NOT NULL,
 	`at` integer NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `note` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `problem_progress` (
+CREATE TABLE IF NOT EXISTS `problem_progress` (
 	`user_id` text NOT NULL,
 	`key` text NOT NULL,
 	`at` integer NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `problem_progress` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `profile` (
+CREATE TABLE IF NOT EXISTS `profile` (
 	`user_id` text PRIMARY KEY NOT NULL,
 	`prefs` text DEFAULT '{}' NOT NULL,
 	`cf_handle` text,
@@ -65,7 +65,7 @@ CREATE TABLE `profile` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `quiz_result` (
+CREATE TABLE IF NOT EXISTS `quiz_result` (
 	`user_id` text NOT NULL,
 	`key` text NOT NULL,
 	`at` integer NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `quiz_result` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `review_card` (
+CREATE TABLE IF NOT EXISTS `review_card` (
 	`user_id` text NOT NULL,
 	`key` text NOT NULL,
 	`at` integer NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE `review_card` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE TABLE `session` (
+CREATE TABLE IF NOT EXISTS `session` (
 	`id` text PRIMARY KEY NOT NULL,
 	`expires_at` integer NOT NULL,
 	`token` text NOT NULL,
@@ -100,9 +100,9 @@ CREATE TABLE `session` (
 	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE UNIQUE INDEX `session_token_unique` ON `session` (`token`);--> statement-breakpoint
-CREATE INDEX `session_user_idx` ON `session` (`user_id`);--> statement-breakpoint
-CREATE TABLE `user` (
+CREATE UNIQUE INDEX IF NOT EXISTS `session_token_unique` ON `session` (`token`);--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS `session_user_idx` ON `session` (`user_id`);--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS `user` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text NOT NULL,
 	`email` text NOT NULL,
@@ -112,8 +112,8 @@ CREATE TABLE `user` (
 	`updated_at` integer NOT NULL
 );
 --> statement-breakpoint
-CREATE UNIQUE INDEX `user_email_unique` ON `user` (`email`);--> statement-breakpoint
-CREATE TABLE `verification` (
+CREATE UNIQUE INDEX IF NOT EXISTS `user_email_unique` ON `user` (`email`);--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS `verification` (
 	`id` text PRIMARY KEY NOT NULL,
 	`identifier` text NOT NULL,
 	`value` text NOT NULL,
@@ -122,4 +122,4 @@ CREATE TABLE `verification` (
 	`updated_at` integer NOT NULL
 );
 --> statement-breakpoint
-CREATE INDEX `verification_identifier_idx` ON `verification` (`identifier`);
+CREATE INDEX IF NOT EXISTS `verification_identifier_idx` ON `verification` (`identifier`);
