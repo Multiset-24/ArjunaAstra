@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently -k -n content,next -c yellow,gray \"npm:content:watch\" \"next dev\"",
     "predev": "tsx scripts/db-migrate.ts",
-    "build": "npm run content -- --force && next build",
+    "build": "tsx scripts/db-migrate.ts && npm run content -- --force && next build",
     "start": "next start",
     "content": "tsx scripts/content.ts",
     "content:watch": "tsx scripts/content.ts --watch",

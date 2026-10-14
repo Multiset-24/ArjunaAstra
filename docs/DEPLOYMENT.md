@@ -17,10 +17,7 @@ teacher is a standard Next.js app. It runs in two modes:
 ## Turning on accounts
 
 1. Create a free database at [turso.tech](https://turso.tech): `turso db create teacher`, then `turso db show teacher --url` and `turso db tokens create teacher`.
-2. Apply migrations from your machine:
-   ```bash
-   DATABASE_URL=libsql://... DATABASE_AUTH_TOKEN=... npm run db:migrate
-   ```
+2. Migrations run at the start of every build (`npm run build`), so the tables are created on the first deploy after `DATABASE_URL` is set. To apply them by hand: `DATABASE_URL=libsql://... DATABASE_AUTH_TOKEN=... npm run db:migrate`.
 3. In Netlify → Project configuration → Environment variables, add:
    - `DATABASE_URL`, `DATABASE_AUTH_TOKEN`
    - `BETTER_AUTH_SECRET` — output of `openssl rand -base64 32`
