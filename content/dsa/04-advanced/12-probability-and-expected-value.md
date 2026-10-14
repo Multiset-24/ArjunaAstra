@@ -88,10 +88,10 @@ You never need to know how the events depend on each other. That is why this tri
 ```quiz
 q: Shuffle 100 items uniformly at random. What is the expected number of items that end up in their original position?
 options:
-  - 0.01
-  - 1
-  - 50
-  - 100
+  - "0.01"
+  - "1"
+  - "50"
+  - "100"
 answer: 1
 why: "Each of the 100 items is in its place with probability 1/100. By linearity the expectation is 100 * (1/100) = 1, even though these events are not independent."
 ```
@@ -378,7 +378,7 @@ For a non-negative integer variable, $E[X] = \sum_{k \ge 1} P(X \ge k)$. For the
 - q: How do you print a fraction p/q modulo a prime M?
   a: Print p * q^(M-2) mod M, where q^(M-2) is the modular inverse of q by Fermat's little theorem.
 - q: How do you handle a state that can return to itself with probability q in an EV DP?
-  a: Collect E[s] on one side: E[s] = (cost + other terms) / (1 - q).
+  a: "Collect E[s] on one side, giving E[s] = (cost + other terms) / (1 - q)."
 - q: Is E[XY] equal to E[X] E[Y]?
   a: Only if X and Y are independent (or uncorrelated). In general it is not.
 ```

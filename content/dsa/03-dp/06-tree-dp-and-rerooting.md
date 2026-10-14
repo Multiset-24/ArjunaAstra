@@ -75,7 +75,7 @@ Brute force: for each vertex, walk its whole subtree again. That is $O(n^2)$ on 
 Instead, finish children first, then the parent. Use a recursive DFS, or the safer order below.
 
 :::tip
-Recursion that goes 10^5 or 2*10^5 deep can crash. Instead, do a BFS from the root, record the visiting order, and process vertices in **reverse BFS order**. Every child then comes before its parent, with no recursion.
+Recursion that goes $10^5$ or $2 \cdot 10^5$ deep can crash. Instead, do a BFS from the root, record the visiting order, and process vertices in **reverse BFS order**. Every child then comes before its parent, with no recursion.
 :::
 
 ### Example: maximum independent set
@@ -336,7 +336,7 @@ Rerooting is the hardest idea in this lesson and usually appears from about 1700
 
 ## Pitfalls
 
-- **Deep recursion.** A path with 2*10^5 vertices overflows the default stack in Java and sometimes in C++. Use the BFS-order approach.
+- **Deep recursion.** A path with $2 \cdot 10^5$ vertices overflows the default stack in Java and sometimes in C++. Use the BFS-order approach.
 - **Forgetting the parent check.** Without `c != par[v]` the DFS walks back to the parent.
 - **Counting the root twice** when merging child results.
 - **Overflow.** Sums of distances reach about $n^2/2$; use 64-bit integers.
