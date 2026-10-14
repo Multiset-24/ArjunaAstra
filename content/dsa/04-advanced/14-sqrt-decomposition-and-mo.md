@@ -236,7 +236,7 @@ frames:
     window: [2, 6]
     vars: {distinct: 3}
     pointers: {L: 2}
-    note: Remove a[1] = 2. Value 2 still appears at position 4. Window [2, 6] has 3 distinct values. Total work was 6 single steps, not 5 + the range length.
+    note: Remove a[1] = 2. Value 2 still appears at position 4. Window [2, 6] has 3 distinct values. Six single steps in all, four adds and two removes.
 ```
 
 ```quiz
@@ -420,7 +420,7 @@ why: First grow the window to cover [l, r] by adding on both sides, then shrink 
 - q: How does Mo's algorithm order the queries?
   a: By block of l (size about sqrt n), then by r ascending (descending in odd blocks).
 - q: Total time of Mo's algorithm?
-  a: O((n + q) sqrt n): the left pointer moves O(sqrt n) per query, the right pointer O(n) per block.
+  a: O((n + q) sqrt n). The left pointer moves O(sqrt n) per query, the right pointer O(n) per block.
 - q: Why expand the window before shrinking it?
   a: Shrinking first can remove elements that were never added and push counts below zero.
 - q: When is sqrt decomposition a better choice than a segment tree?
