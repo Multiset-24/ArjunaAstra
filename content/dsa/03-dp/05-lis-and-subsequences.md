@@ -106,7 +106,7 @@ input:
 ```
 
 :::warn
-`tails` is not itself an increasing subsequence of the array. After `[2, 3, 7, 101]` and then `18`, the array positions may disagree with the order of values. It stores the best tail per length, nothing more. Reconstruction needs extra bookkeeping (below).
+`tails` is not itself a subsequence of the array. For `[4, 5, 1]` it ends as `[1, 5]`, but `1` comes after `5` in the array. It stores the best tail per length, nothing more. Reconstruction needs extra bookkeeping (below).
 :::
 
 Try your own array, with repeated values and a descending run, to watch the tails shrink and grow.
