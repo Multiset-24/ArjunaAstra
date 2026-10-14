@@ -22,7 +22,7 @@ Levels: **DSA** targets Codeforces Candidate Master (1900+). **System Design**, 
 | `01-building-blocks` | 01-scaling-basics · 02-load-balancing · 03-caching · 04-cdn-and-proxies · 05-databases-sql-vs-nosql · 06-indexing · 07-replication · 08-sharding-and-partitioning · 09-consistent-hashing · 10-cap-and-consistency |
 | `02-patterns` | 01-message-queues-and-pubsub · 02-rate-limiting · 03-unique-id-generation · 04-reliability-and-availability · 05-microservices-and-api-gateway · 06-observability-and-security |
 | `04-tools` | 01-kafka · 02-redis · 03-elasticsearch · 04-cassandra-and-dynamodb · 05-nginx-and-reverse-proxies · 06-object-storage-s3 · 07-zookeeper-and-etcd · 08-docker-and-kubernetes |
-| `03-case-studies` | 01-url-shortener · 02-chat-system · 03-news-feed · 04-notification-system · 05-video-streaming · 06-ride-sharing · 07-payment-system · 08-search-autocomplete |
+| `03-case-studies` | 01-url-shortener · 02-chat-system · 03-news-feed · 04-notification-system · 05-video-streaming · 06-ride-sharing · 07-payment-system · 08-search-autocomplete · 09-web-crawler · 10-distributed-key-value-store · 11-file-storage-and-sync · 12-proximity-service · 13-ticket-booking · 14-food-delivery · 15-leaderboard · 16-ecommerce-checkout |
 
 ## Low-Level Design (`lld/`, Java and C++)
 
@@ -32,7 +32,7 @@ Levels: **DSA** targets Codeforces Candidate Master (1900+). **System Design**, 
 | `01-principles` | 01-solid · 02-uml-class-diagrams · 03-clean-design-habits |
 | `02-patterns` | 01-singleton · 02-factory · 03-builder · 04-adapter · 05-decorator · 06-facade · 07-proxy · 08-composite · 09-strategy · 10-observer · 11-command · 12-state · 13-template-method · 14-chain-of-responsibility |
 | `03-concurrency` | 01-threads-and-locks · 02-thread-safe-design |
-| `04-case-studies` | 01-lld-interview-framework · 02-parking-lot · 03-elevator-system · 04-vending-machine · 05-lru-cache · 06-bookmyshow · 07-splitwise · 08-rate-limiter |
+| `04-case-studies` | 01-lld-interview-framework · 02-parking-lot · 03-elevator-system · 04-vending-machine · 05-lru-cache · 06-bookmyshow · 07-splitwise · 08-rate-limiter · 09-tic-tac-toe · 10-snake-and-ladder · 11-chess · 12-library-management · 13-atm · 14-hotel-booking · 15-logging-framework · 16-order-matching-engine |
 
 ## AI Engineering (`ai/`, Python)
 

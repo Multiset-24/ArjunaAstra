@@ -157,7 +157,7 @@ Search cost grows roughly with the logarithm of the collection size, which is wh
 
 | Index | Speed | Memory | Notes |
 |---|---|---|---|
-| Flat (brute force) | Slow at scale | Vectors only | Exact; fine up to about 100k vectors |
+| Flat (brute force) | Slow at scale | Vectors only | Exact; fine up to a few hundred thousand vectors |
 | IVF | Fast | Vectors + centroids | Needs a training step; tune `nprobe` |
 | HNSW | Very fast | Vectors + graph | No training; deletes and updates are awkward |
 | IVF with PQ | Fast | Much smaller | **PQ** (product quantization) stores each vector as short codes; lossy |
