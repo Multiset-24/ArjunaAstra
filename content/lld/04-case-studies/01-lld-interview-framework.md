@@ -183,7 +183,7 @@ options:
   - Add a new `FeePolicy` implementation and pass it in
   - Copy the whole ParkingLot class and change the fee
 answer: 1
-why: A new class behind an existing interface changes no tested code. This is the open/closed principle: open for extension, closed for modification.
+why: "A new class behind an existing interface changes no tested code. This is the open/closed principle: open for extension, closed for modification."
 ```
 
 ```cards
