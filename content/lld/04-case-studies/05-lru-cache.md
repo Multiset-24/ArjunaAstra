@@ -6,6 +6,9 @@ difficulty: intermediate
 tags: [case-study, data-structures, linked-list, hash-map, caching, interview]
 prereqs: [lld-interview-framework, thread-safe-design]
 problems:
+  - lc: lfu-cache
+    name: "LFU Cache"
+    difficulty: Hard
   - lc: lru-cache
     name: LRU Cache
     difficulty: Medium

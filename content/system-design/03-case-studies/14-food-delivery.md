@@ -12,6 +12,10 @@ exercises:
 resources:
   - title: Redis documentation - Geospatial indexes
     url: https://redis.io/docs/latest/develop/data-types/geospatial/
+problems:
+  - lc: design-a-food-rating-system
+    name: "Design a Food Rating System"
+    difficulty: Medium
 ---
 
 ## Requirements

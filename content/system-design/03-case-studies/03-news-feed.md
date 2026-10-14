@@ -9,6 +9,10 @@ exercises:
   - Add ranking so posts show by predicted interest instead of time. Where in the pipeline does scoring happen, and what do you cache?
   - A user unfollows someone. Should their old posts vanish from the cached feed immediately? Describe a cheap approach and its inconsistency window.
   - Pick the follower threshold where a user becomes a celebrity (pull instead of push). What numbers drive the choice?
+problems:
+  - lc: design-twitter
+    name: "Design Twitter"
+    difficulty: Medium
 ---
 
 ## Requirements

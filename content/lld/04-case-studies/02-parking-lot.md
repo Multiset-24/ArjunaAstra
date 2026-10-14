@@ -10,6 +10,10 @@ exercises:
   - Add weekend pricing, where every hour costs 50 percent more on Saturday and Sunday. Do it without editing HourlyFeePolicy.
   - Add a "nearest to the entrance" allocation rule where lower level numbers and lower spot ids win, regardless of spot size.
   - Add a display board that shows free spots per level and updates on every park and leave. Which pattern fits, and where is the hook?
+problems:
+  - lc: design-parking-system
+    name: "Design Parking System"
+    difficulty: Easy
 ---
 
 ## Requirements

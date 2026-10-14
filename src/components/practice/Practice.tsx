@@ -79,6 +79,12 @@ export function Practice({ groups }: { groups: LessonGroup[] }) {
   };
 
   const tracks = [...new Set(groups.map((g) => g.track))];
+  const [lcDiff, setLcDiff] = useState<string | null>(null);
+  const lcGroups = groups
+    .map((g) => ({ ...g, problems: g.problems.filter((q) => q.platform === "lc" && (!lcDiff || q.difficulty === lcDiff)) }))
+    .filter((g) => g.problems.length);
+  const lcAll = groups.flatMap((g) => g.problems.filter((q) => q.platform === "lc"));
+  const lcSolved = lcAll.filter((q) => solved(q.key)).length;
 
   return (
     <div className="container page">
@@ -212,6 +218,34 @@ export function Practice({ groups }: { groups: LessonGroup[] }) {
           })}
           {ladder && !rows.length && <li className="faint" style={{ padding: 16 }}>Nothing left with this filter. Nice.</li>}
         </ul>
+      </section>
+
+      <section className={s.ladder} aria-label="LeetCode by topic">
+        <div className={s.ladderHead}>
+          <h2>LeetCode by topic</h2>
+          <span className="faint mono" style={{ fontSize: "var(--fs-xs)" }}>
+            {lcSolved}/{lcAll.length} solved · free problems only
+          </span>
+        </div>
+        <p className="faint" style={{ fontSize: "var(--fs-sm)", marginBottom: 12, maxWidth: "46em" }}>
+          The interview-style set: every LeetCode problem from the lessons, grouped by technique in learning order. Good for placement and interview prep; pair it with
+          Codeforces for contest speed.
+        </p>
+        <div className={s.filters}>
+          {[null, "Easy", "Medium", "Hard"].map((d) => (
+            <button key={d ?? "all"} className="chip" aria-pressed={lcDiff === d} onClick={() => setLcDiff(d)}>
+              {d ?? "all"}
+            </button>
+          ))}
+        </div>
+        {lcGroups.map((g) => (
+          <div key={g.lessonId} className={s.lessonGroup}>
+            <PracticeList problems={g.problems} title={g.title} />
+            <Link href={`/learn/${g.lessonId}`} className={s.lessonLink}>
+              Learn the technique →
+            </Link>
+          </div>
+        ))}
       </section>
 
       <section className={s.fromLessons} aria-label="Lesson problems">

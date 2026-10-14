@@ -10,6 +10,10 @@ exercises:
   - Add a MacroCommand that holds a list of commands and runs them as one step. How should its undo() order the child undos?
   - Limit history to the last 50 commands. Which structure, and which end do you drop from?
   - Mark commands that cannot be undone (such as sending an email). How does Editor.run() treat them?
+problems:
+  - lc: design-browser-history
+    name: "Design Browser History"
+    difficulty: Medium
 ---
 
 ## The problem it solves

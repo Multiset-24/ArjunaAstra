@@ -10,6 +10,16 @@ exercises:
   - A reader thread calls get() while writers call increment(). Does get() need the lock too? Explain what could go wrong without it.
   - Add a transfer to Account that refuses when the balance is too low. Where must the balance check sit relative to the lock?
   - Three accounts and three threads each transfer in a circle (A to B, B to C, C to A). Show that the lock-order rule still prevents deadlock.
+problems:
+  - lc: print-in-order
+    name: "Print in Order"
+    difficulty: Easy
+  - lc: print-foobar-alternately
+    name: "Print FooBar Alternately"
+    difficulty: Medium
+  - lc: the-dining-philosophers
+    name: "The Dining Philosophers"
+    difficulty: Medium
 ---
 
 ## Threads in one minute

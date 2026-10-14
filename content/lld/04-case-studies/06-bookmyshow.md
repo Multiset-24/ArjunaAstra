@@ -10,6 +10,10 @@ exercises:
   - Add a background sweeper that clears expired locks every few seconds. Which behaviour of the current design makes the sweeper optional, and what would it improve?
   - Support seat categories with dynamic pricing, where a Friday evening show costs 20 percent more. Decide whether the price lives on Seat, Show or a pricing interface.
   - Replace the single lock per show with one lock per seat. What must you add to keep a multi-seat request deadlock free?
+problems:
+  - lc: design-movie-rental-system
+    name: "Design Movie Rental System"
+    difficulty: Hard
 ---
 
 ## Requirements

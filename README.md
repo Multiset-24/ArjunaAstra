@@ -9,7 +9,7 @@ A calm, interactive place to learn problem solving and software engineering from
 | Low-Level Design (Java / C++) | Intermediate, machine-coding ready — incl. 16 LLD case studies | 41 lessons |
 | AI Engineering (Python) | Build, evaluate and ship LLM features | 32 lessons |
 
-Every lesson is short and interactive: quick checks, predict-the-output, put-the-lines-in-order, fill-in-the-blanks, back-of-the-envelope estimates, step-through algorithm visualizers, flashcards with spaced review, copy-ready notes and real practice problems from Codeforces, LeetCode and CSES.
+Every lesson is short and interactive: quick checks, predict-the-output, put-the-lines-in-order, fill-in-the-blanks, back-of-the-envelope estimates, step-through algorithm visualizers, flashcards with spaced review, copy-ready notes and real practice problems from Codeforces (302), LeetCode (154, free only) and CSES (65). The practice page has a Codeforces rating ladder and a LeetCode-by-topic list for interview prep.
 
 It is also honest. Reading lessons does not raise a rating; solving problems does. The site says so, and organises the practice.
 

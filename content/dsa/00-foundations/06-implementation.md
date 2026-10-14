@@ -17,6 +17,12 @@ problems:
   - cf: 116A
     name: Tram
     rating: 800
+  - lc: fizz-buzz
+    name: "Fizz Buzz"
+    difficulty: Easy
+  - lc: robot-return-to-origin
+    name: "Robot Return to Origin"
+    difficulty: Easy
   - cf: 266A
     name: Stones on the Table
     rating: 800
@@ -41,6 +47,15 @@ problems:
     name: Xenia and Ringroad
     rating: 1000
     note: simulate, watch the wrap-around
+  - lc: spiral-matrix
+    name: "Spiral Matrix"
+    difficulty: Medium
+  - lc: rotate-image
+    name: "Rotate Image"
+    difficulty: Medium
+  - lc: game-of-life
+    name: "Game of Life"
+    difficulty: Medium
 exercises:
   - Pick two problems from the list and write the checklist from this lesson next to each statement before coding.
   - Rewrite the robot program so it also prints the farthest distance from the origin.

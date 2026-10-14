@@ -10,6 +10,10 @@ exercises:
   - Add an IOC (immediate or cancel) flag, so any part that cannot trade right away is discarded instead of resting. Which method changes?
   - Replace the two heaps with a map from price to a FIFO queue of orders. What gets easier (cancel, depth) and what gets harder?
   - Support many symbols. What is the unit you give one thread, and why does it make locks unnecessary inside an order book?
+problems:
+  - lc: stock-price-fluctuation
+    name: "Stock Price Fluctuation "
+    difficulty: Medium
 ---
 
 ## Requirements

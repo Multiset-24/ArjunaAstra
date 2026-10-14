@@ -10,6 +10,19 @@ exercises:
   - The interviewer adds "members can reserve a book that is on loan". Using only your entity list, say which classes change, which are new, and which stay untouched.
   - Set a 10 minute timer and write only the skeleton (interfaces, empty classes, method signatures) for a hotel booking system. Did the skeleton alone make the flow clear?
   - Pick one case study in this stage, write its class diagram from memory, and compare it with the lesson's diagram. List every difference and decide which version you prefer.
+problems:
+  - lc: design-underground-system
+    name: "Design Underground System"
+    difficulty: Medium
+  - lc: design-authentication-manager
+    name: "Design Authentication Manager"
+    difficulty: Medium
+  - lc: time-based-key-value-store
+    name: "Time Based Key-Value Store"
+    difficulty: Medium
+  - lc: design-spreadsheet
+    name: "Design Spreadsheet"
+    difficulty: Medium
 ---
 
 ## What the round tests
