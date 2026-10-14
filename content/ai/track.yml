@@ -1,0 +1,30 @@
+id: ai
+title: AI Engineering
+short: AI
+tagline: The math, models and engineering every AI engineer needs — from gradient descent to RAG and agents.
+description: Enough math to understand what is happening, the classic ML toolkit, deep learning and transformers, then building real LLM applications with retrieval, tools, evals and deployment.
+target: Intermediate — build, evaluate and ship LLM-powered features
+order: 4
+status: soon
+codeLangs: [python]
+reality:
+  - Tools change every few months; the fundamentals (linear algebra, probability, optimisation, evaluation) do not. Invest there first.
+  - Most real AI engineering is data quality, evaluation and plumbing — not training giant models.
+  - You will need to read papers and documentation. These lessons give you the map, not every detail.
+  - A demo that works once is not a product. Measure with evals before you trust any change.
+stages:
+  - id: foundations
+    title: Foundations
+    goal: Python, NumPy and just enough math and probability.
+  - id: ml
+    title: Machine learning
+    goal: Regression, classification, evaluation, overfitting and classic models.
+  - id: deep-learning
+    title: Deep learning
+    goal: Neural networks, backpropagation, training and PyTorch.
+  - id: llms
+    title: Transformers & LLMs
+    goal: Attention, the transformer, tokenization and how LLMs are trained and sampled.
+  - id: engineering
+    title: Building AI apps
+    goal: APIs, RAG, vector search, agents, evals, fine-tuning, serving and safety.

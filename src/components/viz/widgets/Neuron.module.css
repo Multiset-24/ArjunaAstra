@@ -1,0 +1,9 @@
+.sliders {
+  display: grid;
+  gap: var(--sp-1);
+}
+.val {
+  min-width: 3em;
+  text-align: right;
+  color: var(--accent-2);
+}

@@ -1,0 +1,42 @@
+.head { padding: 48px 0 28px; }
+.head h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 300; margin-top: 8px; }
+.tagline { color: var(--text-2); font-size: 1.1rem; margin-top: 10px; max-width: 40em; }
+.metaRow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.reality { margin: 8px 0 36px; border: 1px solid var(--line-soft); border-left: 3px solid var(--gold); border-radius: var(--r-md); background: var(--surface); }
+.reality summary { cursor: pointer; padding: 14px 18px; color: var(--gold); font-weight: 600; font-size: var(--fs-sm); letter-spacing: 0.08em; text-transform: uppercase; list-style: none; min-height: 44px; }
+.reality summary::-webkit-details-marker { display: none; }
+.reality ul { margin: 0; padding: 0 22px 16px 38px; color: var(--text-2); display: grid; gap: 8px; line-height: 1.6; }
+.stages { list-style: none; margin: 0; padding: 0; }
+.stage { display: grid; grid-template-columns: 28px 1fr; gap: 16px; position: relative; }
+.stone { position: relative; display: flex; justify-content: center; }
+.stone::before { content: ""; position: absolute; top: 14px; bottom: -14px; width: 1px; background: var(--line); }
+.stage:last-child .stone::before { display: none; }
+.stoneDot { position: relative; margin-top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.stoneDone { background: var(--accent); }
+.stageBody { padding-bottom: 40px; min-width: 0; }
+.stageHead { display: flex; justify-content: space-between; }
+.stageCount { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-3); }
+.stageTitle { font-size: 1.6rem; margin-top: 4px; }
+.stageGoal { color: var(--text-2); margin-top: 6px; }
+.milestone { color: var(--text-3); font-size: var(--fs-sm); margin-top: 4px; }
+.lessons { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--line-soft); }
+.lesson {
+  display: grid; grid-template-columns: 12px 28px 1fr auto; gap: 12px; align-items: center;
+  padding: 14px 8px; border-bottom: 1px solid var(--line-soft); color: var(--text); text-decoration: none !important;
+}
+.lesson:hover { background: var(--surface); }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--text-3); }
+.d_done { background: var(--sage); border-color: var(--sage); }
+.d_started { border-color: var(--accent); background: radial-gradient(circle, var(--accent) 35%, transparent 40%); }
+.lNum { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-3); }
+.lMain { display: grid; gap: 2px; min-width: 0; }
+.lTitle { font-weight: 500; }
+.lSum { color: var(--text-3); font-size: var(--fs-sm); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lMeta { display: flex; gap: 12px; color: var(--text-3); font-size: var(--fs-xs); white-space: nowrap; }
+@media (max-width: 640px) {
+  .lesson { grid-template-columns: 12px 1fr; }
+  .lNum, .lMeta { display: none; }
+  .lSum { white-space: normal; }
+  .stage { grid-template-columns: 18px 1fr; gap: 10px; }
+}
+.all { list-style: none; padding: 0; margin: 0; }

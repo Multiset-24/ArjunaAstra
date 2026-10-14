@@ -1,0 +1,114 @@
+/*
+ * teacher design tokens. Dark brown ("walnut") is the default; "paper" is the light theme.
+ * Use these variables everywhere; never hard-code colours in components.
+ */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #17110d;
+  --bg-elev: #1d1611;
+  --surface: #231a14;
+  --surface-2: #2b2119;
+  --surface-3: #33271e;
+  --line: #3b2e24;
+  --line-soft: #2c2219;
+  --text: #ece1d1;
+  --text-2: #c4b4a1;
+  --text-3: #988775;
+  --accent: #d39d6b;
+  --accent-2: #e6b98c;
+  --accent-soft: rgba(211, 157, 107, 0.14);
+  --accent-ink: #1b120b;
+  --sage: #a3b68f;
+  --sage-soft: rgba(163, 182, 143, 0.14);
+  --rose: #dc917d;
+  --rose-soft: rgba(220, 145, 125, 0.14);
+  --gold: #dcb96f;
+  --gold-soft: rgba(220, 185, 111, 0.14);
+  --sky: #9fb4c4;
+  --sky-soft: rgba(159, 180, 196, 0.14);
+  --code-bg: #120d09;
+  --code-line: #2a2018;
+  --selection: rgba(211, 157, 107, 0.3);
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 12px 32px -12px rgba(0, 0, 0, 0.55);
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+:root[data-theme="paper"] {
+  color-scheme: light;
+  --bg: #f4ede1;
+  --bg-elev: #eee5d6;
+  --surface: #f9f4eb;
+  --surface-2: #efe6d7;
+  --surface-3: #e7dcca;
+  --line: #d8cab4;
+  --line-soft: #e4d8c6;
+  --text: #2a1f17;
+  --text-2: #5b4a3b;
+  --text-3: #7d6b59;
+  --accent: #9a5a2c;
+  --accent-2: #7f4620;
+  --accent-soft: rgba(154, 90, 44, 0.1);
+  --accent-ink: #fbf6ee;
+  --sage: #56713f;
+  --sage-soft: rgba(86, 113, 63, 0.12);
+  --rose: #a5503d;
+  --rose-soft: rgba(165, 80, 61, 0.1);
+  --gold: #8f6c22;
+  --gold-soft: rgba(143, 108, 34, 0.12);
+  --sky: #47667d;
+  --sky-soft: rgba(71, 102, 125, 0.1);
+  --code-bg: #f1e9dc;
+  --code-line: #e2d6c3;
+  --selection: rgba(154, 90, 44, 0.2);
+  --shadow: 0 1px 0 rgba(60, 40, 20, 0.06), 0 12px 32px -14px rgba(60, 40, 20, 0.25);
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+:root {
+  --font-display: "Fraunces Variable", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-prose: 1.0625rem;
+  --fs-lg: 1.2rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.6rem;
+
+  --lh-tight: 1.25;
+  --lh-prose: 1.72;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+
+  --header-h: 56px;
+  --sidebar-w: 280px;
+  --rail-w: 240px;
+  --content-w: 720px;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 140ms;
+  --t-med: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0ms;
+    --t-med: 0ms;
+  }
+}

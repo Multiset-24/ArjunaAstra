@@ -1,0 +1,5 @@
+.fig {
+  display: grid;
+  gap: var(--sp-2);
+  margin: 0;
+}

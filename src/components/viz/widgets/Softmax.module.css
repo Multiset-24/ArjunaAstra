@@ -1,0 +1,51 @@
+.rows {
+  display: grid;
+  gap: var(--sp-3);
+}
+.item {
+  display: grid;
+  gap: 2px;
+}
+.line {
+  display: grid;
+  grid-template-columns: 3.6em minmax(0, 1fr) 5.5em;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.line .numIn {
+  width: 100%;
+}
+.barLine {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.5em;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.track {
+  position: relative;
+  height: 14px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+.bar {
+  height: 100%;
+  background: var(--text-3);
+  transition: width var(--t-fast) var(--ease);
+}
+.top {
+  background: var(--accent);
+}
+.ref {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--text);
+  opacity: 0.7;
+}
+.pct {
+  text-align: right;
+  color: var(--text);
+}

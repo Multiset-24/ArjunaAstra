@@ -1,0 +1,18 @@
+.plane {
+  max-width: 420px;
+  margin-inline: auto;
+  touch-action: none;
+  user-select: none;
+}
+.handle {
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+}
+.handle:active {
+  cursor: grabbing;
+}
+.handle:focus-visible .knob {
+  stroke: var(--text);
+  stroke-width: 3;
+}

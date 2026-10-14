@@ -1,0 +1,35 @@
+id: dsa
+title: DSA & Competitive Programming
+short: DSA
+tagline: From your first loop to Codeforces Candidate Master.
+description: Problem solving built the only way it works — small ideas, verified templates, and a lot of deliberate practice on real Codeforces, LeetCode and CSES problems.
+target: Candidate Master (Codeforces 1900+)
+order: 1
+codeLangs: [cpp, java]
+reality:
+  - Reading these lessons will not raise your rating. Solving problems will. The lessons only make that practice efficient.
+  - Reaching Candidate Master usually takes one to three years of steady practice. Many people take longer, a few take less. There is no shortcut and no magic trick.
+  - People who get there have typically solved several hundred to over a thousand problems, most of them a little above their current level (about +100 to +300 rating).
+  - Rating only moves in contests. Give contests regularly and upsolve the problems you could not finish — that is where most growth happens.
+  - Plateaus of weeks or months are normal. Keep the volume up, review mistakes, and the next jump comes.
+stages:
+  - id: foundations
+    title: Foundations
+    goal: Read a problem carefully, write correct code, and know whether it will run in time.
+    milestone: Solve most 800–1000 rated problems on your own.
+  - id: core
+    title: Core techniques
+    goal: The everyday tools — prefix sums, two pointers, binary search, hashing, stacks, recursion and bits.
+    milestone: Pupil (1200) — solve Div. 2 A and B in most contests.
+  - id: intermediate
+    title: Greedy, math & graphs
+    goal: Greedy proofs, number theory, combinatorics, trees and the classic graph algorithms.
+    milestone: Specialist (1400–1600) — B and C regularly.
+  - id: dp
+    title: Dynamic programming
+    goal: Define states, write transitions, and recognise the standard DP families.
+    milestone: Expert (1600+) — DP no longer scares you.
+  - id: advanced
+    title: Advanced, to Candidate Master
+    goal: Range-query structures, trees, strings, advanced graphs, game theory and contest craft.
+    milestone: Candidate Master (1900+) — Div. 2 D and E within reach.

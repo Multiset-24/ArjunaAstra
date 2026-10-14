@@ -1,0 +1,50 @@
+/* Shared tone variables. A view sets one of these classes on a cell / node / bar and reads
+   --t-bg, --t-fg, --t-line (and --t-bar for bars) from it. Only design tokens are used. */
+.none {
+  --t-bg: var(--surface-2);
+  --t-fg: var(--text);
+  --t-line: var(--line);
+  --t-bar: var(--surface-3);
+}
+.active {
+  --t-bg: var(--accent);
+  --t-fg: var(--accent-ink);
+  --t-line: var(--accent-2);
+  --t-bar: var(--accent);
+}
+.compare {
+  --t-bg: var(--gold-soft);
+  --t-fg: var(--text);
+  --t-line: var(--gold);
+  --t-bar: var(--gold);
+}
+.done {
+  --t-bg: var(--sage-soft);
+  --t-fg: var(--text);
+  --t-line: var(--sage);
+  --t-bar: var(--sage);
+}
+.match {
+  --t-bg: var(--sage);
+  --t-fg: var(--accent-ink);
+  --t-line: var(--sage);
+  --t-bar: var(--sage);
+}
+.bad {
+  --t-bg: var(--rose-soft);
+  --t-fg: var(--text);
+  --t-line: var(--rose);
+  --t-bar: var(--rose);
+}
+.muted {
+  --t-bg: transparent;
+  --t-fg: var(--text-3);
+  --t-line: var(--line-soft);
+  --t-bar: var(--line);
+}
+.focus {
+  --t-bg: var(--sky-soft);
+  --t-fg: var(--text);
+  --t-line: var(--sky);
+  --t-bar: var(--sky);
+}

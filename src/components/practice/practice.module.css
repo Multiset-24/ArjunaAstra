@@ -1,0 +1,42 @@
+.h1 { font-size: clamp(1.9rem, 4.4vw, 2.6rem); font-weight: 300; margin: 8px 0 12px; }
+.grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin: 32px 0 40px; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+.panel { border: 1px solid var(--line-soft); border-radius: var(--r-lg); background: var(--surface); padding: 18px 20px; }
+.cfStats { display: flex; gap: 28px; flex-wrap: wrap; margin: 12px 0 16px; }
+.big { font-family: var(--font-mono); font-size: 1.5rem; color: var(--text); }
+.handleRow { display: flex; gap: 8px; }
+.handleRow .input { max-width: 260px; }
+.msg { margin-top: 10px; font-size: var(--fs-sm); }
+.ok { color: var(--sage); }
+.err { color: var(--rose); }
+.daily { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+.daily li { display: flex; justify-content: space-between; gap: 12px; }
+.daily a { color: var(--text); }
+.dailyDone a { color: var(--text-3); text-decoration: line-through; }
+.ladder { margin-bottom: 48px; }
+.ladderHead { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.ladderHead h2 { font-size: 1.6rem; }
+.rungs { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 6px; }
+.rung {
+  flex: none; display: grid; gap: 5px; padding: 8px 10px 7px; min-width: 58px; border-radius: var(--r-md);
+  border: 1px solid var(--line-soft); background: var(--surface); color: var(--text-2); font: 500 var(--fs-sm) var(--font-mono); cursor: pointer;
+}
+.rung:hover { border-color: var(--line); }
+.rungOn { border-color: var(--accent); color: var(--text); background: var(--accent-soft); }
+.rungBar { height: 3px; background: var(--line); border-radius: 3px; overflow: hidden; display: block; }
+.rungBar span { display: block; height: 100%; background: var(--sage); }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0; align-items: center; }
+.hide { margin-left: auto; font-size: var(--fs-sm); color: var(--text-2); display: flex; gap: 6px; align-items: center; }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-soft); }
+.row { display: flex; align-items: center; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--line-soft); font-size: var(--fs-sm); }
+.row input { width: 18px; height: 18px; accent-color: var(--sage); flex: none; }
+.rowName { color: var(--text); flex: 1; min-width: 0; font-size: var(--fs-md); }
+.rowDone .rowName { color: var(--text-3); text-decoration: line-through; }
+.tags { color: var(--text-3); font-size: var(--fs-xs); }
+@media (max-width: 640px) { .tags { display: none; } .row { flex-wrap: wrap; } }
+.fromLessons h2 { font-size: 1.6rem; margin-bottom: 6px; }
+.trackGroup { border-top: 1px solid var(--line-soft); }
+.trackGroup summary { cursor: pointer; padding: 14px 4px; display: flex; justify-content: space-between; font-family: var(--font-display); font-size: 1.2rem; list-style: none; }
+.trackGroup summary::-webkit-details-marker { display: none; }
+.lessonGroup { margin-bottom: 16px; }
+.lessonLink { display: inline-block; margin: 6px 4px 0; font-size: var(--fs-sm); }

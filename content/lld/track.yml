@@ -1,0 +1,29 @@
+id: lld
+title: Low-Level Design
+short: LLD
+tagline: Object-oriented design in Java and C++ — principles, patterns and real machine-coding problems.
+description: Classes that are easy to change, patterns as a shared vocabulary, and full case studies like parking lots, elevators and booking systems.
+target: Intermediate — clean answers in LLD and machine-coding rounds
+order: 3
+status: soon
+codeLangs: [java, cpp]
+reality:
+  - Patterns are vocabulary, not goals. Forcing a pattern where it is not needed is the most common LLD mistake.
+  - Interviewers judge clarity, extensibility and correctness under time pressure. Practise writing the full code in 45–60 minutes.
+  - You learn design by changing code. Take each case study and add a new requirement — that is where weak designs crack.
+stages:
+  - id: oop
+    title: OOP foundations
+    goal: Classes, objects and the four pillars, with Java and C++ side by side.
+  - id: principles
+    title: Design principles
+    goal: SOLID, UML class diagrams and the habits that keep code changeable.
+  - id: patterns
+    title: Design patterns
+    goal: The creational, structural and behavioural patterns that appear in real code and interviews.
+  - id: concurrency
+    title: Concurrency basics
+    goal: Threads, locks and the thread-safety questions LLD rounds ask.
+  - id: case-studies
+    title: Case studies
+    goal: Complete machine-coding problems, from requirements to working code.

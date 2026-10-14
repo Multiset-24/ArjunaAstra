@@ -1,0 +1,24 @@
+/* Shiki dual theme: spans carry --shiki-dark / --shiki-light. */
+pre.shiki {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  border-radius: var(--r-md);
+  border: 1px solid var(--code-line);
+  background-color: var(--shiki-dark-bg, var(--code-bg)) !important;
+  color: var(--shiki-dark);
+  tab-size: 4;
+}
+pre.shiki span { color: var(--shiki-dark); font-style: var(--shiki-dark-font-style); }
+:root[data-theme="paper"] pre.shiki { background-color: var(--shiki-light-bg, var(--code-bg)) !important; color: var(--shiki-light); }
+:root[data-theme="paper"] pre.shiki span { color: var(--shiki-light); font-style: var(--shiki-light-font-style); }
+pre.shiki code { font-family: inherit; display: block; min-width: max-content; }
+pre.shiki .line { display: inline; }
+code, kbd, pre, samp { font-family: var(--font-mono); }
+kbd {
+  font-size: 0.75rem; padding: 1px 6px; border-radius: 5px;
+  border: 1px solid var(--line); border-bottom-width: 2px; color: var(--text-2); background: var(--surface);
+}

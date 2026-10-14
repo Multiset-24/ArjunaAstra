@@ -1,0 +1,65 @@
+.inputs {
+  display: grid;
+  gap: var(--sp-3);
+}
+.num {
+  display: grid;
+  gap: var(--sp-2);
+}
+.numHead,
+.rowHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+}
+.dec {
+  color: var(--accent-2);
+}
+.cells {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+}
+.cell {
+  display: grid;
+  place-items: center;
+  height: 32px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+.one {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-2);
+}
+.toggle {
+  height: 44px;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.toggle:hover {
+  border-color: var(--text-3);
+}
+.toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+.rows {
+  display: grid;
+  gap: var(--sp-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rowItem {
+  display: grid;
+  gap: 6px;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--line-soft);
+}

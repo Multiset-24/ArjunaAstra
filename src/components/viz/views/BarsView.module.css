@@ -1,0 +1,56 @@
+.figure {
+  margin: 0;
+  min-width: 0;
+}
+.label {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  margin-bottom: var(--sp-1);
+}
+.scroller {
+  overflow-x: auto;
+}
+.bars {
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(22px, 56px));
+  gap: 6px;
+  width: fit-content;
+  margin-inline: auto;
+  align-items: end;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  color: var(--t-fg);
+}
+.value,
+.name {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name {
+  color: var(--text-3);
+  margin-top: 3px;
+}
+.track {
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  width: 100%;
+  min-height: 2px;
+  background: var(--t-bar);
+  border: 1px solid var(--t-line);
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+  transition: height var(--t-fast) var(--ease);
+}

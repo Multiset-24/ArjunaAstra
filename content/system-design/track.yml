@@ -1,0 +1,27 @@
+id: system-design
+title: System Design
+short: System Design
+tagline: How real systems stay fast, available and correct — explained from first principles.
+description: Networking, storage, caching, queues and the trade-offs behind them, then complete case studies in the shape of a real interview.
+target: Intermediate — confident in a 45-minute system design interview
+order: 2
+status: soon
+codeLangs: []
+reality:
+  - Articles alone will not make you good at system design. Build small systems, break them, and read real postmortems.
+  - Interviews test reasoning and trade-offs, not memorised diagrams. Two candidates with the same diagram can get opposite results.
+  - Numbers matter. If you cannot estimate QPS, storage and bandwidth roughly, your design is a guess.
+  - Most real-world design is choosing what not to build. Simple and boring usually wins.
+stages:
+  - id: foundations
+    title: Foundations
+    goal: How a request travels — networks, DNS, HTTP, APIs — and how to estimate load.
+  - id: building-blocks
+    title: Building blocks
+    goal: Scaling, load balancing, caching, CDNs and every major database idea.
+  - id: patterns
+    title: Distributed patterns
+    goal: Queues, rate limiting, IDs, reliability, microservices, observability and security.
+  - id: case-studies
+    title: Case studies
+    goal: End-to-end designs of systems you use every day.
