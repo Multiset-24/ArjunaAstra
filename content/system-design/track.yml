@@ -21,6 +21,9 @@ stages:
   - id: patterns
     title: Distributed patterns
     goal: Queues, rate limiting, IDs, reliability, microservices, observability and security.
+  - id: tools
+    title: Real-world tools
+    goal: How Kafka, Redis, Elasticsearch, Cassandra, Nginx, S3, ZooKeeper and Kubernetes actually work inside, and when to pick each.
   - id: case-studies
     title: Case studies
     goal: End-to-end designs of systems you use every day.

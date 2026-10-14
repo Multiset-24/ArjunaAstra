@@ -21,6 +21,7 @@ Levels: **DSA** targets Codeforces Candidate Master (1900+). **System Design**, 
 | `00-foundations` | 01-start-here · 02-networking-basics · 03-dns-and-http · 04-apis · 05-back-of-the-envelope · 06-interview-framework |
 | `01-building-blocks` | 01-scaling-basics · 02-load-balancing · 03-caching · 04-cdn-and-proxies · 05-databases-sql-vs-nosql · 06-indexing · 07-replication · 08-sharding-and-partitioning · 09-consistent-hashing · 10-cap-and-consistency |
 | `02-patterns` | 01-message-queues-and-pubsub · 02-rate-limiting · 03-unique-id-generation · 04-reliability-and-availability · 05-microservices-and-api-gateway · 06-observability-and-security |
+| `04-tools` | 01-kafka · 02-redis · 03-elasticsearch · 04-cassandra-and-dynamodb · 05-nginx-and-reverse-proxies · 06-object-storage-s3 · 07-zookeeper-and-etcd · 08-docker-and-kubernetes |
 | `03-case-studies` | 01-url-shortener · 02-chat-system · 03-news-feed · 04-notification-system · 05-video-streaming · 06-ride-sharing · 07-payment-system · 08-search-autocomplete |
 
 ## Low-Level Design (`lld/`, Java and C++)
