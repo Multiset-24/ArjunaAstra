@@ -1,6 +1,6 @@
 ---
 title: Thread-Safe Design
-summary: Build classes that are safe by design: confine data, prefer immutability, hand work over through a blocking queue, and run tasks on a pool.
+summary: "Build classes that are safe by design: confine data, prefer immutability, hand work over through a blocking queue, and run tasks on a pool."
 minutes: 28
 difficulty: intermediate
 tags: [concurrency, thread-safety, immutability, producer-consumer, thread-pool, condition-variable]
@@ -64,7 +64,7 @@ code: |
   Money b = a.plus(new Money(50));
   System.out.println(a.paise() + " " + b.paise());
 output: 100 150
-why: plus() builds a new Money and leaves a alone. That is what makes sharing an immutable object safe: the value another thread holds never changes under it.
+why: "plus() builds a new Money and leaves a alone. That is what makes sharing an immutable object safe: the value another thread holds never changes under it."
 ```
 
 :::warn
@@ -258,7 +258,7 @@ prompt: Complete the C++ wait so the thread sleeps while the queue is full.
 lang: cpp
 code: |
   notFull_.wait(lock, [&] { return items_.size() [[<]] capacity_; });
-why: The predicate says when the thread may continue: there is room, so the size is below the capacity. wait() sleeps while the predicate is false.
+why: "The predicate says when the thread may continue: there is room, so the size is below the capacity. wait() sleeps while the predicate is false."
 ```
 
 ## Thread pools

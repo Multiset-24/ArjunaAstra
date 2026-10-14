@@ -6,8 +6,9 @@ difficulty: beginner
 tags: [overview, roadmap]
 prereqs: []
 exercises:
-  - Pick one feature you use daily (spam filter, autocomplete, photo search). Write down what its input is, what its output is, and how you would know it got a case wrong.
-  - Write five test cases for "classify a customer message as refund, tracking or other" before you write any code. Include one that is genuinely ambiguous.
+  - Pick one feature you use daily (spam filter, autocomplete, photo search). Write down its input, its output, and how you would know it got a case wrong.
+  - Write five test cases for "classify a customer message as refund, tracking or other" before writing any code. Include one that is genuinely ambiguous.
+  - List three things that could make a model that worked last month fail this month without anyone touching the code.
 resources:
   - title: Attention Is All You Need (the transformer paper)
     url: https://arxiv.org/abs/1706.03762
@@ -15,13 +16,13 @@ resources:
 
 ## What this track is
 
-AI engineering means building software where part of the behaviour comes from a **model** (a function whose rules were learned from data, not written by hand) instead of an `if` statement.
+AI engineering means building software where part of the behaviour comes from a **model** instead of an `if` statement. A model is a function whose rules were learned from data, not written by hand.
 
 You will work through five stages:
 
-- **Foundations**: Python, NumPy (the array library), just enough linear algebra, calculus and probability.
+- **Foundations**: Python, NumPy (the array library), and just enough linear algebra, calculus and probability.
 - **Machine learning**: regression, classification, evaluation, overfitting, classic models.
-- **Deep learning**: neural networks, backpropagation, training, PyTorch.
+- **Deep learning**: neural networks, backpropagation, training, PyTorch (a deep learning library).
 - **Transformers and LLMs**: attention, tokenization, training, sampling. An **LLM** (large language model) is a neural network trained to predict the next piece of text.
 - **Building AI apps**: APIs, RAG, agents, evals, fine-tuning, serving, safety.
 
@@ -30,122 +31,128 @@ flowchart LR
   F[Foundations] --> M[Classic ML] --> D[Deep learning] --> L[Transformers and LLMs] --> E[Building apps]
 ```
 
-## Where the time really goes
+## Where the time goes
 
-Most people picture the work as designing clever models. Most teams spend it elsewhere.
+Most people picture an AI engineer tuning a giant neural network. Most working AI engineers spend their days elsewhere.
 
-| Activity | Typical share of effort | What it looks like |
+| Activity | Rough share of effort | What it looks like |
 |---|---|---|
-| Data: collecting, cleaning, labelling | Largest | Fixing missing values, duplicates, wrong labels |
-| Evaluation | Large | Test sets, metrics, comparing versions, finding failure cases |
-| Plumbing | Large | APIs, retries, caching, latency, cost, monitoring |
-| Model choice and prompting | Smaller than expected | Picking a model, writing prompts, tuning |
-| Training a model from scratch | Rare | Only a few labs do this at scale |
+| Data | Large | Collecting, cleaning, labelling, finding the cases the model gets wrong |
+| Evaluation | Large | Writing test sets, choosing metrics, comparing versions |
+| Plumbing | Large | APIs, queues, caching, latency, cost, monitoring |
+| Modelling | Small | Choosing a model, prompting, fine-tuning |
 
 :::truth
-The share of effort is a rule of thumb, not a measurement. The direction is reliable: a better dataset and a better test set usually beat a cleverer model. A demo that works once is not a product.
+Training a large model from scratch needs data and compute budgets that almost no team has. Most jobs are about using, evaluating and wrapping existing models well. The work is real engineering, just less cinematic than the headlines.
 :::
 
 ```quiz
-q: A teammate says the new prompt "feels better". What is the most useful next step?
+q: A team's chatbot "feels better" after a prompt change. What should they do before shipping it?
 options:
-  - Ship it, since the demo looked good
-  - Run both prompts on the same fixed set of test cases and compare scores
-  - Switch to a bigger model
+  - Ship it, because the demo looked good
+  - Run both versions on the same fixed set of test questions and compare scores
   - Ask the model whether the new prompt is better
 answer: 1
-why: "Impressions are noisy and biased toward the last example you saw. A fixed test set makes the comparison repeatable, and it is the habit this whole track keeps coming back to."
+why: A feeling from a few demos is not evidence. A fixed test set (an eval) lets you compare versions on identical inputs and catch regressions.
 ```
 
-## The smallest useful habit: an eval
+## The loop you will repeat
 
-An **eval** (evaluation) is a fixed list of inputs with the answers you expect, plus a score. It is the unit test of AI work.
+Every project in this track follows the same loop:
 
-```predict
+1. **Define** the input, the output and what "wrong" means.
+2. **Build** a dumb baseline first (a rule, an average, a single prompt).
+3. **Measure** it on data the model has not seen.
+4. **Improve** the biggest source of errors, then measure again.
+
+Skipping step 3 is the most common mistake. A change that cannot be measured is a guess.
+
+```order
+prompt: Arrange a minimal evaluation loop.
 lang: python
-prompt: A keyword rule is scored on four labelled messages. What is printed?
 code: |
-  cases = [
-      ("refund please", "refund"),
-      ("where is my parcel", "tracking"),
-      ("money back now", "refund"),
-      ("hello", "other"),
-  ]
-
-  def classify(text):
-      return "refund" if "refund" in text else "other"
-
-  hits = sum(classify(t) == label for t, label in cases)
-  print(hits / len(cases))
-output: 0.5
-why: "Only 'refund please' and 'hello' match. The rule misses 'parcel' and 'money back', so 2 of 4 are right. You only know this because the cases exist."
+  cases = load_test_cases()
+  results = []
+  for case in cases:
+      answer = call_llm(case["prompt"])
+      results.append(answer == case["expected"])
+  print(sum(results) / len(results))
+distractors:
+  - "  results.append(call_llm(case) is not None)"
+why: Load fixed cases, run the system on each, record pass or fail, then report one number you can compare across versions.
 ```
 
-The same loop works when the classifier is an LLM. Only the function changes.
+## A tiny eval, runnable now
+
+`call_llm` below is a placeholder. Throughout this track it stands for "your provider's client call"; you swap in a real one later.
 
 ```python
 def call_llm(prompt: str) -> str:
-    """Placeholder: send `prompt` to any LLM provider and return its text reply."""
-    raise NotImplementedError
+    """Placeholder: replace with your provider's client call."""
+    return "Paris" if "France" in prompt else "unknown"
 
-def classify_with_llm(text: str) -> str:
-    reply = call_llm(f"Label as refund, tracking or other. Message: {text}\nLabel:")
-    return reply.strip().lower()
+cases = [
+    {"prompt": "Capital of France?", "expected": "Paris"},
+    {"prompt": "Capital of Japan?", "expected": "Tokyo"},
+]
+passed = sum(call_llm(c["prompt"]).strip() == c["expected"] for c in cases)
+print(f"{passed}/{len(cases)} passed")
+```
+```output
+1/2 passed
 ```
 
-`call_llm` is deliberately not tied to a vendor. Real SDKs differ, and the lessons in the last stage show how to wrap one safely.
-
-```order
-prompt: Arrange the core eval loop.
-lang: python
-code: |
-  cases = load_cases()
-  scores = []
-  for case in cases:
-      reply = call_llm(case["prompt"])
-      scores.append(grade(reply, case["expect"]))
-  print(sum(scores) / len(scores))
-distractors:
-  - "    print(scores[0])"
-why: "Load the cases, call the model once per case, grade each reply, then report one aggregate number after the loop. Printing a single score tells you almost nothing."
-```
+The score is 1 of 2, and now you know exactly which case fails. That is the whole idea of an eval: a number you can track.
 
 ## How to use these lessons
 
-- **Do the blocks.** Predicting an output before running it teaches more than reading the answer.
-- **Run the code.** Snippets are small and deterministic. Those that need PyTorch or scikit-learn say so.
-- **Keep notes.** Every lesson ends with a short summary you can copy. Writing it in your own words is what makes it stick.
-- **Expect to be slow at first.** Math notation feels hostile for the first few weeks. That is normal and it passes with practice.
+- Read a section, then answer the block under it before moving on. Guessing wrong teaches more than reading the answer.
+- Run every code sample yourself and change one number to see what moves.
+- Finish the cards at the end of each lesson. They join your review deck, which brings the facts back after a few days, when you would otherwise forget them.
+- Write your own notes. The `Notes` box at the end is a starting point, not a substitute.
 
-:::tip
-You do not need a GPU or a paid account for the first three stages. A laptop and Python are enough.
+## What you need before starting
+
+- Comfortable Python: functions, lists, dictionaries, loops.
+- High-school algebra. Everything else is taught here, in small pieces.
+- Patience. Models are statistical, so the same code can give different results when data changes.
+
+```predict
+lang: python
+code: |
+  scores = [0.9, 0.7, 0.8]
+  print(round(sum(scores) / len(scores), 1))
+output: "0.8"
+why: The mean of 0.9, 0.7 and 0.8 is 2.4 / 3 = 0.8. Averaging scores over a test set is the simplest eval metric.
+```
+
+:::warn
+Fluent output is not correct output. A language model can produce a confident, well-formed, wrong answer. Never treat polish as a sign of accuracy.
 :::
 
-## What you will not get
-
-- A shortcut. There is real math, and it takes repetition.
-- Every detail. These lessons give you the map. Papers and official documentation give you the territory, and tools change every few months while the fundamentals do not.
-- Guarantees. Models are probabilistic, so "mostly right" is the normal state and your job is to measure how mostly.
+## Review cards
 
 ```cards
-- q: What is a model, in one sentence?
+- q: What is a model?
   a: A function whose rules were learned from data instead of written by hand.
-- q: What is an eval?
-  a: A fixed set of inputs with expected answers plus a score, used to compare versions of a system objectively.
-- q: Where does most real AI engineering time go?
-  a: Data quality, evaluation and plumbing, far more than designing or training models.
-- q: What does LLM stand for?
-  a: Large language model, a neural network trained to predict the next piece of text.
+- q: Where does most AI engineering effort go?
+  a: Data quality, evaluation and plumbing (APIs, latency, cost, monitoring), more than training models.
+- q: What is a baseline?
+  a: A deliberately simple solution (a rule, an average) that any real model must beat to be worth using.
+- q: Why keep a fixed test set?
+  a: So different versions are compared on identical inputs and regressions become visible.
+- q: What does "eval" mean?
+  a: A repeatable test that turns model behaviour into a number you can track.
 ```
 
 ## Notes
 
 :::notes
-- A model is a function learned from data; AI engineering is building software around one.
-- Most effort goes to data, evaluation and plumbing, not model design.
-- An eval is a fixed set of cases plus a score. Build one before you change anything.
-- Compare versions on the same cases, never on impressions.
-- Track path: foundations, classic ML, deep learning, transformers and LLMs, building apps.
-- Tools change quickly; linear algebra, probability, optimisation and evaluation stay useful.
-- "Mostly right" is the normal state of a model; measure how mostly.
+- A model is a function learned from data; AI engineering is software around such functions.
+- Most effort goes to data, evaluation and plumbing, not training huge models.
+- Loop: define the task, build a dumb baseline, measure on unseen data, fix the biggest errors, measure again.
+- An eval is a fixed set of cases plus a scoring rule that gives one comparable number.
+- Fluent output is not correct output; measure before you trust.
+- Track map: foundations, classic ML, deep learning, transformers and LLMs, building apps.
+- `call_llm(...)` in these lessons is a placeholder for your provider's client call.
 :::
