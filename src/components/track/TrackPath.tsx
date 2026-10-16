@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
 import type { LessonMeta, Stage } from "@/lib/content/types";
+
+export type TrackLesson = Pick<LessonMeta, "title" | "summary" | "minutes" | "rating">;
 import { useProgress } from "@/lib/store/progress";
 import { lessonStatus } from "@/lib/progress-utils";
 import { cx } from "@/lib/utils";
 import s from "./track.module.css";
 
-export function TrackPath({ stages, lessons }: { stages: Stage[]; lessons: Record<string, LessonMeta> }) {
+export function TrackPath({ stages, lessons }: { stages: Stage[]; lessons: Record<string, TrackLesson> }) {
   const { state, ready } = useProgress();
   return (
     <ol className={s.stages}>

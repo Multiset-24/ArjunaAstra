@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getCatalog } from "@/lib/content/catalog";
+import { canonical } from "@/lib/site";
+
+export const metadata: Metadata = { alternates: canonical("/") };
 import { Enso } from "@/components/shell/Enso";
 import { TrackRows, type TrackLite } from "@/components/home/TrackRows";
 import { Today } from "@/components/home/Today";

@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { ProblemRef } from "@/lib/content/types";
+
+export type PracticeProblem = Omit<ProblemRef, "id">;
 import type { CfRow, Ladder } from "@/lib/cf/types";
 import { useProgress } from "@/lib/store/progress";
 import { solvedCount } from "@/lib/progress-utils";
@@ -13,7 +15,7 @@ export interface LessonGroup {
   lessonId: string;
   title: string;
   track: string;
-  problems: ProblemRef[];
+  problems: PracticeProblem[];
 }
 
 const RUNGS = Array.from({ length: 17 }, (_, i) => 800 + i * 100);
