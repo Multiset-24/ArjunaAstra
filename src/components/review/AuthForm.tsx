@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { oauthErrorMessage } from "@/lib/oauth-errors";
 import s from "./auth.module.css";
 
 export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
@@ -12,11 +13,33 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   useEffect(() => {
+    const message = oauthErrorMessage(new URLSearchParams(window.location.search).get("error"));
+    if (message) {
+      setError(message);
+      const url = new URL(window.location.href);
+      url.searchParams.delete("error");
+      url.searchParams.delete("error_description");
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    }
     fetch("/api/config")
       .then((r) => r.json())
       .then(setCfg)
       .catch(() => setCfg({ authEnabled: false, providers: { github: false, google: false } }));
   }, []);
+
+  const startSocial = async (provider: "github" | "google") => {
+    setBusy(true);
+    setError(null);
+    const res = await authClient.signIn.social({
+      provider,
+      callbackURL: "/",
+      errorCallbackURL: "/sign-in",
+    });
+    if (res.error) {
+      setBusy(false);
+      setError(res.error.message ?? "Could not start sign-in.");
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,14 +98,19 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
           {cfg && (cfg.providers.github || cfg.providers.google) && (
             <div className={s.social}>
               {cfg.providers.github && (
-                <button className="btn" onClick={() => authClient.signIn.social({ provider: "github", callbackURL: "/" })}>
+                <button type="button" className="btn" disabled={busy} onClick={() => startSocial("github")}>
                   Continue with GitHub
                 </button>
               )}
               {cfg.providers.google && (
-                <button className="btn" onClick={() => authClient.signIn.social({ provider: "google", callbackURL: "/" })}>
+                <button type="button" className="btn" disabled={busy} onClick={() => startSocial("google")}>
                   Continue with Google
                 </button>
+              )}
+              {cfg.providers.github && (
+                <p className="faint" style={{ fontSize: "var(--fs-xs)", margin: 0 }}>
+                  Already registered with email? Sign in, then connect GitHub from your profile. The addresses have to match.
+                </p>
               )}
             </div>
           )}

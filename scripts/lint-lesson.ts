@@ -1,7 +1,7 @@
 /**
  * Fast, standalone lesson linter (no build needed).
  *
- *   npx tsx scripts/lint-lesson.ts content/dsa/01-core/03-two-pointers.md [more files or dirs]
+ *   npx tsx scripts/lint-lesson.ts content/dsa/01-arrays/04-two-pointers.md [more files or dirs]
  *
  * Checks frontmatter, every interactive block (YAML + schema), viz inputs against the catalog,
  * problems against the Codeforces / LeetCode snapshots in data/, the notes block, and minimum

@@ -15,11 +15,11 @@ How to write a lesson for teacher. Every lesson is one Markdown file with YAML f
 
 ```
 content/<track>/<NN>-<stage-id>/<NN>-<slug>.md
-content/dsa/01-core/03-two-pointers.md      -> /learn/dsa/two-pointers
+content/dsa/01-arrays/04-two-pointers.md    -> /learn/dsa/two-pointers
 ```
 
 - `<track>`: `dsa`, `system-design`, `lld`, `ai`. Stages are listed in `content/<track>/track.yml`.
-- Stage folders: `00-foundations`, `01-core`, … (number = stage order, name = stage id from track.yml).
+- Stage folders: `00-foundations`, `01-arrays`, … (number = stage order, name = stage id from track.yml).
 - Lesson files: two-digit order prefix + kebab-case slug. The slug must be unique inside the track.
 
 ## Frontmatter
