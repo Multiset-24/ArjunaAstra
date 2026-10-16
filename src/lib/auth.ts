@@ -2,14 +2,12 @@ import "server-only";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
+import { githubAccountLinking, readSocialProviders, socialProviderConfig } from "./auth-providers";
 import { dbEnabled, getDb, schema } from "./db";
 
 export const authEnabled = dbEnabled;
 
-const providers = {
-  github: !!(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET),
-  google: !!(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET),
-};
+const providers = readSocialProviders(process.env);
 export const authProviders = providers;
 
 let secret = process.env.BETTER_AUTH_SECRET;
@@ -27,10 +25,8 @@ function create() {
       schema: { user: schema.user, session: schema.session, account: schema.account, verification: schema.verification },
     }),
     emailAndPassword: { enabled: true, minPasswordLength: 8, autoSignIn: true },
-    socialProviders: {
-      ...(providers.github ? { github: { clientId: process.env.GITHUB_CLIENT_ID!, clientSecret: process.env.GITHUB_CLIENT_SECRET! } } : {}),
-      ...(providers.google ? { google: { clientId: process.env.GOOGLE_CLIENT_ID!, clientSecret: process.env.GOOGLE_CLIENT_SECRET! } } : {}),
-    },
+    account: { accountLinking: githubAccountLinking },
+    socialProviders: socialProviderConfig(process.env),
     telemetry: { enabled: false },
     plugins: [nextCookies()],
   });

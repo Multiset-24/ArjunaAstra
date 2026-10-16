@@ -9,10 +9,17 @@ Levels: **DSA** targets Codeforces Candidate Master (1900+). **System Design**, 
 | Stage | Milestone | Lessons (`<stage-folder>/<NN>-<slug>`) |
 |---|---|---|
 | `00-foundations` | Solve most 800–1000 problems | 01-start-here · 02-how-to-think · 03-language-setup · 04-complexity · 05-math-basics · 06-implementation · 07-sorting-and-searching · 08-stl-and-collections |
-| `01-core` | Pupil (1200) | 01-arrays-and-strings · 02-prefix-sums · 03-two-pointers · 04-sliding-window · 05-binary-search · 06-binary-search-on-answer · 07-hashing-and-frequency · 08-stacks-and-queues · 09-recursion · 10-backtracking · 11-bit-manipulation |
-| `02-intermediate` | Specialist (1400–1600) | 01-greedy · 02-sweep-line · 03-number-theory · 04-modular-arithmetic · 05-combinatorics · 06-constructive-algorithms · 07-trees-basics · 08-heaps-and-priority-queues · 09-graphs-bfs-dfs · 10-shortest-paths · 11-dsu · 12-mst · 13-topological-sort |
-| `03-dp` | Expert (1600+) | 01-dp-introduction · 02-dp-1d-patterns · 03-dp-on-grids-and-strings · 04-knapsack · 05-lis-and-subsequences · 06-tree-dp-and-rerooting · 07-bitmask-dp · 08-digit-dp |
-| `04-advanced` | Candidate Master (1900+) | 01-segment-tree · 02-lazy-propagation · 03-fenwick-tree · 04-sparse-table · 05-lca-binary-lifting · 06-euler-tour · 07-string-hashing · 08-kmp-and-z-function · 09-trie · 10-scc-and-bridges · 11-game-theory · 12-probability-and-expected-value · 13-matrix-exponentiation · 14-sqrt-decomposition-and-mo · 15-small-to-large · 16-interactive-problems · 17-contest-strategy |
+| `01-arrays` | Pupil (1200) | 01-arrays-and-strings · 02-prefix-sums · 03-hashing-and-frequency · 04-two-pointers · 05-sliding-window · 06-binary-search · 07-binary-search-on-answer · 08-stacks-and-queues |
+| `02-recursion` | Recursive search feels routine | 01-recursion · 02-backtracking · 03-bit-manipulation |
+| `03-greedy` | Constructive and greedy B problems | 01-constructive-algorithms · 02-greedy · 03-sweep-line |
+| `04-math` | Specialist math (1400–1600) | 01-number-theory · 02-modular-arithmetic · 03-combinatorics |
+| `05-graphs` | Specialist (1400–1600) | 01-heaps-and-priority-queues · 02-trees-basics · 03-graphs-bfs-dfs · 04-topological-sort · 05-shortest-paths · 06-dsu · 07-mst |
+| `06-dp` | Expert (1600+) | 01-dp-introduction · 02-dp-1d-patterns · 03-dp-on-grids-and-strings · 04-knapsack · 05-lis-and-subsequences · 06-tree-dp-and-rerooting · 07-bitmask-dp · 08-digit-dp |
+| `07-ranges` | Range queries around 1700–2000 | 01-sparse-table · 02-fenwick-tree · 03-segment-tree · 04-lazy-propagation · 05-sqrt-decomposition-and-mo |
+| `08-trees` | Tree problems beyond one DFS | 01-lca-binary-lifting · 02-euler-tour · 03-small-to-large |
+| `09-strings` | Standard string problems | 01-string-hashing · 02-kmp-and-z-function · 03-trie |
+| `10-advanced` | Candidate Master ideas | 01-game-theory · 02-probability-and-expected-value · 03-matrix-exponentiation · 04-scc-and-bridges |
+| `11-contests` | Candidate Master (1900+) | 01-interactive-problems · 02-contest-strategy |
 
 ## System Design (`system-design/`)
 

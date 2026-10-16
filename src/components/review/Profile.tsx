@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { oauthErrorMessage } from "@/lib/oauth-errors";
 import { useProgress } from "@/lib/store/progress";
 import { solvedCount, streak } from "@/lib/progress-utils";
 import s from "./review.module.css";
@@ -12,7 +13,45 @@ export function Profile() {
   const file = useRef<HTMLInputElement>(null);
   const [msg, setMsg] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [githubOn, setGithubOn] = useState(false);
+  const [githubLinked, setGithubLinked] = useState<boolean | null>(null);
+  const [linkBusy, setLinkBusy] = useState(false);
+  const [msgIsError, setMsgIsError] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+    const message = oauthErrorMessage(new URLSearchParams(window.location.search).get("error"));
+    if (message) {
+      setMsgIsError(true);
+      setMsg(message);
+      const url = new URL(window.location.href);
+      url.searchParams.delete("error");
+      url.searchParams.delete("error_description");
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    }
+  }, []);
+  useEffect(() => {
+    if (!user) return;
+    let cancel = false;
+    fetch("/api/config")
+      .then((r) => r.json())
+      .then((cfg: { providers?: { github?: boolean } }) => {
+        if (!cancel) setGithubOn(!!cfg.providers?.github);
+      })
+      .catch(() => {
+        if (!cancel) setGithubOn(false);
+      });
+    authClient
+      .listAccounts()
+      .then((res) => {
+        if (!cancel) setGithubLinked((res.data ?? []).some((a) => a.providerId === "github"));
+      })
+      .catch(() => {
+        if (!cancel) setGithubLinked(false);
+      });
+    return () => {
+      cancel = true;
+    };
+  }, [user]);
   const seg = (k: "codeLang" | "theme" | "mode", opts: [string, string][]) => (
     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
       {opts.map(([v, label]) => (
@@ -76,14 +115,44 @@ export function Profile() {
               hidden
               onChange={async (e) => {
                 const f = e.target.files?.[0];
-                if (f) setMsg(p.importData(await f.text()) ? "Imported." : "That file doesn't look like a teacher export.");
+                if (f) {
+                  const ok = p.importData(await f.text());
+                  setMsgIsError(!ok);
+                  setMsg(ok ? "Imported." : "That file doesn't look like a teacher export.");
+                }
               }}
             />
           </div>,
         )}
+        {user && githubOn && githubLinked !== null && row("GitHub", githubLinked ? <span>Connected</span> : (
+          <span style={{ display: "grid", gap: 6, justifyItems: "start" }}>
+            <button
+              type="button"
+              className="btn btn-sm"
+              disabled={linkBusy}
+              onClick={async () => {
+                setLinkBusy(true);
+                setMsg(null);
+                const res = await authClient.linkSocial({ provider: "github", callbackURL: "/profile", errorCallbackURL: "/profile" });
+                if (res.error) {
+                  setLinkBusy(false);
+                  setMsgIsError(true);
+                  setMsg(res.error.message ?? "Could not connect GitHub.");
+                }
+              }}
+            >
+              {linkBusy ? "Connecting…" : "Connect GitHub"}
+            </button>
+            <span className="faint" style={{ fontSize: "var(--fs-xs)" }}>Uses the GitHub account with this same email.</span>
+          </span>
+        ))}
         {user && row("Account", <button className="btn btn-sm" onClick={async () => { await authClient.signOut(); location.href = "/"; }}>Sign out</button>)}
       </section>
-      {msg && <p className="muted" style={{ marginTop: 12 }}>{msg}</p>}
+      {msg && (
+        <p className={msgIsError ? undefined : "muted"} style={{ marginTop: 12, color: msgIsError ? "var(--rose)" : undefined, fontSize: "var(--fs-sm)" }}>
+          {msg}
+        </p>
+      )}
     </div>
   );
 }

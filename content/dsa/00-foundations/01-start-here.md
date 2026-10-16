@@ -40,15 +40,22 @@ resources:
 
 ## What this track is
 
-This track teaches **competitive programming** (solving short, precisely specified problems against a time limit) and the data structures and algorithms (DSA) behind it. It has five stages. Each stage ends with a milestone you can check against a real rating.
+This track teaches **competitive programming** (solving short, precisely specified problems against a time limit) and the data structures and algorithms (DSA) behind it. The lessons are grouped by topic, in the order you should meet them: foundations first, contest craft last. Each stage has a milestone you can check against a real rating.
 
 | Stage | What you learn | Milestone |
 |---|---|---|
 | Foundations | Reading problems, I/O, complexity, math, sorting, STL | Solve most 800-1000 rated problems |
-| Core techniques | Prefix sums, two pointers, binary search, hashing, stacks, bits | Pupil (1200) |
-| Greedy, math and graphs | Greedy proofs, number theory, trees, shortest paths | Specialist (1400-1600) |
-| Dynamic programming | States, transitions, the standard families | Expert (1600+) |
-| Advanced | Range queries, strings, trees, game theory | Candidate Master (1900+) |
+| Arrays and searching | Prefix sums, hashing, two pointers, windows, binary search, stacks | Pupil (1200) |
+| Recursion and bits | Recursion, backtracking, bit tricks | Recursive search feels routine |
+| Greedy and construction | Build an answer, justify a greedy choice, sweep intervals | Constructive and greedy B problems |
+| Counting and number theory | Primes, modular arithmetic, counting | Specialist math |
+| Trees and graphs | Heaps, trees, BFS and DFS, shortest paths, DSU | Specialist (1400-1600) |
+| Dynamic programming | States, transitions, then trees, masks and digits | Expert (1600+) |
+| Range queries | Sparse tables, Fenwick and segment trees | Range queries around 1700-2000 |
+| Advanced trees | Lowest common ancestors, Euler tours, small-to-large | Tree problems beyond one DFS |
+| Strings | Hashing, pattern matching, tries | Standard string problems |
+| Advanced topics | Games, expected value, matrix powers, connectivity | Candidate Master ideas |
+| Contest craft | Interactive problems and how you train | Candidate Master (1900+) |
 
 :::truth
 Reading lessons will not raise your rating. Solving problems will. The lessons only make that practice faster and less frustrating.
@@ -191,7 +198,7 @@ Candidate Master typically takes one to three years of steady practice. Plateaus
 
 :::notes
 - Lessons do not raise your rating; solving problems slightly above your level does.
-- Stages: Foundations (800-1000), Core (Pupil 1200), Intermediate (Specialist), DP (Expert), Advanced (Candidate Master 1900).
+- Path: foundations, arrays, recursion, greedy, math, graphs, dynamic programming, range queries, advanced trees, strings, advanced topics, contest craft.
 - Titles: Newbie below 1200, Pupil 1200, Specialist 1400, Expert 1600, Candidate Master 1900.
 - Verdicts: AC accepted, WA wrong answer, TLE too slow, RE crash, MLE too much memory.
 - Practice loop: attempt 30-45 min, one hint, editorial, re-implement from memory, note the idea and the bug, upsolve.

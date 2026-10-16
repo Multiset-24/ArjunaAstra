@@ -17,19 +17,47 @@ stages:
     title: Foundations
     goal: Read a problem carefully, write correct code, and know whether it will run in time.
     milestone: Solve most 800–1000 rated problems on your own.
-  - id: core
-    title: Core techniques
-    goal: The everyday tools — prefix sums, two pointers, binary search, hashing, stacks, recursion and bits.
-    milestone: Pupil (1200) — solve Div. 2 A and B in most contests.
-  - id: intermediate
-    title: Greedy, math & graphs
-    goal: Greedy proofs, number theory, combinatorics, trees and the classic graph algorithms.
-    milestone: Specialist (1400–1600) — B and C regularly.
+  - id: arrays
+    title: Arrays and searching
+    goal: Prefix sums, hashing, two pointers, windows, binary search and stacks — the tools behind almost every easy problem.
+    milestone: Pupil (1200) — Div. 2 A, and most B problems.
+  - id: recursion
+    title: Recursion and bits
+    goal: Break a problem into smaller copies of itself, search by trying choices, and use bits as sets.
+    milestone: Recursive search and the common bit tricks feel routine.
+  - id: greedy
+    title: Greedy and construction
+    goal: Build an answer directly, justify a locally best choice, and sweep intervals from left to right.
+    milestone: Constructive and greedy Div. 2 B problems.
+  - id: math
+    title: Counting and number theory
+    goal: Primes, remainders and counting — the math that shows up once implementation is solid.
+    milestone: Specialist math, roughly 1400–1600.
+  - id: graphs
+    title: Trees and graphs
+    goal: Heaps, trees, BFS and DFS, then shortest paths, disjoint sets and spanning trees.
+    milestone: Specialist (1400–1600) — graph B and C problems.
   - id: dp
     title: Dynamic programming
-    goal: Define states, write transitions, and recognise the standard DP families.
-    milestone: Expert (1600+) — DP no longer scares you.
+    goal: Name a state and a transition, then move from one-dimensional DP through knapsack to trees, masks and digits.
+    milestone: Expert (1600+) — standard DP no longer scares you.
+  - id: ranges
+    title: Range queries
+    goal: Answer questions about a segment of an array, from a static table to trees that handle updates.
+    milestone: Range-query problems in the 1700–2000 band.
+  - id: trees
+    title: Advanced trees
+    goal: Jump around a rooted tree, flatten subtrees into array ranges, and merge the smaller set into the larger.
+    milestone: Tree problems that need more than one DFS.
+  - id: strings
+    title: Strings
+    goal: Compare substrings in constant time, find a pattern in linear time, and store prefixes in a trie.
+    milestone: Standard string problems up to about 2000.
   - id: advanced
-    title: Advanced, to Candidate Master
-    goal: Range-query structures, trees, strings, advanced graphs, game theory and contest craft.
-    milestone: Candidate Master (1900+) — Div. 2 D and E within reach.
+    title: Advanced topics
+    goal: Four separate ideas, in rising difficulty — games, expected value, matrix powers, and strong connectivity.
+    milestone: Candidate Master ideas for Div. 2 D and E.
+  - id: contests
+    title: Contest craft
+    goal: Talk to an interactive judge, then practise, compete and get through the plateaus on the way up.
+    milestone: Candidate Master (1900+) — a repeatable contest habit.
