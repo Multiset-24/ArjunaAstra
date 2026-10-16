@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { getCatalog } from "@/lib/content/catalog";
 import { TrackRows } from "@/components/home/TrackRows";
+import { canonical } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Learn" };
+export const metadata: Metadata = { title: "Learn", alternates: canonical("/learn") };
 
 export default function LearnPage() {
   const cat = getCatalog();

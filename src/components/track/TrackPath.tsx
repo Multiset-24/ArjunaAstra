@@ -6,7 +6,9 @@ import { lessonStatus } from "@/lib/progress-utils";
 import { cx } from "@/lib/utils";
 import s from "./track.module.css";
 
-export function TrackPath({ stages, lessons }: { stages: Stage[]; lessons: Record<string, LessonMeta> }) {
+export type TrackLesson = Pick<LessonMeta, "title" | "summary" | "minutes" | "rating">;
+
+export function TrackPath({ stages, lessons }: { stages: Stage[]; lessons: Record<string, TrackLesson> }) {
   const { state, ready } = useProgress();
   return (
     <>

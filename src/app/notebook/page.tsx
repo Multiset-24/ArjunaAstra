@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { getCatalog } from "@/lib/content/catalog";
 import { Notebook } from "@/components/review/Notebook";
+import { noIndex } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Notebook" };
+export const metadata: Metadata = { title: "Notebook", robots: noIndex };
 
 export default function NotebookPage() {
   const cat = getCatalog();
