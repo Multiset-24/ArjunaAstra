@@ -7,16 +7,22 @@ import { ProgressProvider } from "@/lib/store/progress";
 import { Header } from "@/components/shell/Header";
 import { Footer } from "@/components/shell/Footer";
 import { CommandPalette } from "@/components/shell/CommandPalette";
+import { siteUrl } from "@/lib/site";
+
+const description = "From zero to Codeforces Candidate Master, plus System Design, Low-Level Design and AI Engineering. Short interactive lessons, honest guidance, real practice.";
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl(),
   title: { default: "teacher — calm, interactive learning", template: "%s · teacher" },
-  description: "From zero to Codeforces Candidate Master, plus System Design, Low-Level Design and AI Engineering. Short interactive lessons, honest guidance, real practice.",
+  description,
+  openGraph: { type: "website", siteName: "teacher", locale: "en_US" },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#17110d" },
-    { media: "(prefers-color-scheme: light)", color: "#17110d" },
+    { media: "(prefers-color-scheme: light)", color: "#f4ede1" },
   ],
   width: "device-width",
   initialScale: 1,

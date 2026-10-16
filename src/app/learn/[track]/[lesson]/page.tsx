@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getCatalog, getLesson, getTrack } from "@/lib/content/catalog";
 import { Markdown } from "@/components/md/Markdown";
 import { LessonView } from "@/components/lesson/LessonView";
+import { canonical } from "@/lib/site";
 
 export function generateStaticParams() {
   const ids = Object.values(getCatalog().lessons).map((l) => ({ track: l.track, lesson: l.slug }));
@@ -12,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ track: string; lesson: string }> }): Promise<Metadata> {
   const { track, lesson } = await params;
   const l = getLesson(track, lesson);
-  return l ? { title: l.title, description: l.summary } : {};
+  return l ? { title: l.title, description: l.summary, alternates: canonical(`/learn/${track}/${lesson}`) } : {};
 }
 
 export default async function LessonPage({ params }: { params: Promise<{ track: string; lesson: string }> }) {

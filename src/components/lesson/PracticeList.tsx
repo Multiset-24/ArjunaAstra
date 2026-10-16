@@ -1,12 +1,12 @@
 "use client";
-import type { ProblemRef } from "@/lib/content/types";
+import type { PracticeProblem } from "@/components/practice/Practice";
 import { useProgress } from "@/lib/store/progress";
 import { cx } from "@/lib/utils";
 import s from "./lesson.module.css";
 
 const SITE: Record<string, string> = { cf: "CF", lc: "LC", cses: "CSES", other: "" };
 
-export function PracticeList({ problems, title = "Practice" }: { problems: ProblemRef[]; title?: string }) {
+export function PracticeList({ problems, title = "Practice" }: { problems: PracticeProblem[]; title?: string }) {
   const { state, setProblem } = useProgress();
   const solved = problems.filter((p) => state.problems[p.key]?.status === "solved").length;
   return (

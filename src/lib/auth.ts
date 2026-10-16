@@ -2,6 +2,7 @@ import "server-only";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
+import { MissingAuthSecretError, resolveAuthSecret } from "./auth-secret";
 import { githubAccountLinking, readSocialProviders, socialProviderConfig } from "./auth-providers";
 import { dbEnabled, getDb, schema } from "./db";
 
@@ -10,15 +11,9 @@ export const authEnabled = dbEnabled;
 const providers = readSocialProviders(process.env);
 export const authProviders = providers;
 
-let secret = process.env.BETTER_AUTH_SECRET;
-if (!secret) {
-  if (process.env.NODE_ENV === "production" && authEnabled) console.warn("[teacher] BETTER_AUTH_SECRET is not set — set it in production.");
-  secret = "teacher-dev-secret-change-me-teacher-dev-secret";
-}
-
 function create() {
   return betterAuth({
-    secret,
+    secret: resolveAuthSecret(),
     baseURL: process.env.BETTER_AUTH_URL,
     database: drizzleAdapter(getDb(), {
       provider: "sqlite",
@@ -45,7 +40,8 @@ export async function getSessionUser(headers: Headers) {
   try {
     const s = await getAuth().api.getSession({ headers });
     return s?.user ?? null;
-  } catch {
+  } catch (err) {
+    if (err instanceof MissingAuthSecretError) throw err;
     return null;
   }
 }

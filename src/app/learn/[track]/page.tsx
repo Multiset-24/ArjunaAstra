@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCatalog, getTrack } from "@/lib/content/catalog";
-import { TrackPath } from "@/components/track/TrackPath";
+import { TrackPath, type TrackLesson } from "@/components/track/TrackPath";
+import { canonical } from "@/lib/site";
 import s from "@/components/track/track.module.css";
 
 export function generateStaticParams() {
@@ -12,14 +13,22 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ track: string }> }): Promise<Metadata> {
   const { track } = await params;
   const t = getTrack(track);
-  return t ? { title: t.title, description: t.tagline } : {};
+  return t ? { title: t.title, description: t.tagline, alternates: canonical(`/learn/${t.id}`) } : {};
 }
 
 export default async function TrackPage({ params }: { params: Promise<{ track: string }> }) {
   const { track } = await params;
   const t = getTrack(track);
   if (!t) notFound();
-  const { lessons } = getCatalog();
+  const { lessons: all } = getCatalog();
+  const lessons: Record<string, TrackLesson> = {};
+  for (const stage of t.stages) {
+    for (const id of stage.lessons) {
+      const lesson = all[id];
+      if (!lesson) continue;
+      lessons[id] = { title: lesson.title, summary: lesson.summary, minutes: lesson.minutes, ...(lesson.rating ? { rating: lesson.rating } : {}) };
+    }
+  }
   return (
     <div className="container narrow">
       <header className={s.head}>
